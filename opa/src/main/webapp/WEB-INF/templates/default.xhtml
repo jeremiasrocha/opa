@@ -1,52 +1,68 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:ui="http://java.sun.com/jsf/facelets">
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:ui="http://java.sun.com/jsf/facelets">
+   
    <h:head>
-      <title>Java EE 6 Starter Application</title>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <h:outputStylesheet name="css/screen.css"/>
-   </h:head>
-   <h:body>
-      <div id="container">
-         <div id="content">
-            <div id="sidebar">
-               <h3>Find out more</h3>
-               <p>
-                  Explore JavaServer Faces.
-               </p>
-               <ul>
-                  <li><a href="http://www.javaserverfaces.org">JSF community site</a></li>
-               </ul>
-               <p>
-                  Learn more about Java EE 6 and the extensions provided by Weld and Seam.
-               </p>
-               <ul>
-                  <li><a href="http://seamframework.org/Weld/JSR299AndWeldOverview">Overview</a></li>
-                  <li><a href="http://seamframework.org">Project site</a></li>
-                  <li><a href="http://seamframework.org/Documentation/SeamDocumentation#H-WeldReferenceDocumentation">Documentation</a></li>
-                  <li><a href="http://seamframework.org/Community/Forums">User forums</a></li>
-                  <li><a href="http://seamframework.org/Community/MailingLists">Mailing lists</a></li>
-                  <li><a href="https://jira.jboss.org/jira/browse/WELD">Issue tracker</a></li>
-               </ul>
-               <p>
-                  If you have an add-on, please <a href="http://seamframework.org/Community/Forums">let us know</a> and
-                  consider <a href="http://seamframework.org/Community/Contribute">contributing</a> it back to the
-                  community!
-               </p>
-            </div>
-            <ui:insert name="content">
-               [Template content will be inserted here]
-            </ui:insert>
-         </div>
-         <div id="footer">
-            <h:graphicImage value="/resources/gfx/weld.png" alt="Weld logo"/>
+	    <title>#{resources['label.global.tituloProjeto']}</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+	    <link rel="shortcut icon" href = "#{request.contextPath}/resources/gfx/logoOpa.png" type="image/x-icon" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap.min.css" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap.css" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/screen.css" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/shop-homepage.css" />
+	    <script src="#{request.contextPath}/resources/js/bootstrap.js"></script>
+	    <script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
+	    <script src="#{request.contextPath}/resources/jquery/jquery.js"></script>
+	</h:head>
+   
+   
+   <h:body styleClass="hold-transition skin-nsa sidebar-mini #{customIdentity.menuCollapse?'sidebar-collapse':'' }">
+	   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	        <div class="container">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button><h:graphicImage value="/resources/gfx/logoOpaPequena.png" />
+	                <a class="navbar-brand" href="#"></a>
+	            </div>
+	            <!-- Collect the nav links, forms, and other content for toggling -->
+	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                <ul class="nav navbar-nav">
+	                    <li>
+	                        <a href="#">About</a>
+	                    </li>
+	                    <li>
+	                        <a href="#">Services</a>
+	                    </li>
+	                    <li>
+	                        <a href="#">Contact</a>
+	                    </li>
+	                </ul>
+	            </div>
+	            <!-- /.navbar-collapse -->
+	        </div>
+	        <!-- /.container -->
+	    </nav>
+   
+   
+   
+   	<div id="footer">
+            <!-- <h:graphicImage value="/resources/gfx/logoOpa.png" alt="Weld logo"/> -->
             <p>
-               This project was generated from a Maven archetype maintained by the Weld team.<br/>
-               Weld is the reference implementation of CDI, released under the Apache License, Version 2.0.<br/>
+               Todos os direitos reservados.<br/>
             </p>
          </div>
-      </div>
    </h:body>
+   
+   
+  
 </html>
