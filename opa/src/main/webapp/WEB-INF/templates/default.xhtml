@@ -15,13 +15,14 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap.css" />
 	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/screen.css" />
 	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/shop-homepage.css" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/login.css" />
 	    <script src="#{request.contextPath}/resources/js/bootstrap.js"></script>
 	    <script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
 	    <script src="#{request.contextPath}/resources/jquery/jquery.js"></script>
+	    <script src="#{request.contextPath}/resources/js/login.js"></script>
 	</h:head>
    
-   
-   <h:body styleClass="hold-transition skin-nsa sidebar-mini #{customIdentity.menuCollapse?'sidebar-collapse':'' }">
+    <h:body styleClass="hold-transition skin-nsa sidebar-mini #{customIdentity.menuCollapse?'sidebar-collapse':'' }">
 	   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	        <div class="container">
 	            <div class="navbar-header">
@@ -30,27 +31,21 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav">
 	                    <li>
-	                        <a href="#" style="font-size: 2em;">Cadastre-se</a>
+	                        <a href="page/usuario/usuario_form.jsf" style="font-size: 2em;">#{resources['label.global.novoCadastro']}</a>
 	                    </li>
+	                    
+	                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+	                    
 	                    <li>
-	                        <a href="#" style="font-size: 2em;">Logar</a>
+	                        <a href="" style="font-size: 2em;">#{resources['label.global.logar']}</a>
 	                    </li>
 	                </ul>
 	            </div>
-	            <!-- /.navbar-collapse -->
 	        </div>
-	        <!-- /.container -->
 	    </nav>
    	
-	   	<div class="container">
+	   	<div>
 	        <div class="row">
-	        	<!--  <div class="col-md-3">
-                	<p class="lead"></p>
-                	<div class="list-group">
-                    	<a href="#" class="list-group-item">Novo Usuário</a>
-                    	<a href="#" class="list-group-item"></a>
-                	</div>
-            	</div> -->
 	   			<div class="col-md-9">
 	   				<div class="row carousel-holder">
 	                    <div class="col-md-12">
@@ -82,143 +77,93 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 	                </div>
 	    		</div> 
 		   	</div>
-		   	
-	   	    <div class="row">
-            	<div class="col-sm-4 col-lg-4 col-md-4">
-                	<div class="thumbnail">
-                    	<h:graphicImage value="/resources/gfx/motoZ.jpg" style="max-width: 50%;" />
-                        <div class="caption">
-                            <h4 class="pull-right">R$300,00</h4>
-                            <h4><a href="#">Moto Z play</a>
-                            </h4>
-                            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">15 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                    	</div>
-                	</div>
-                	
-                	<div class="thumbnail">
-                    	<h:graphicImage value="/resources/gfx/notebook.jpg" style="max-width: 50%;"/>
-                        <div class="caption">
-                            <h4 class="pull-right">R$900,00</h4>
-                            <h4><a href="#">Notebook Dell Inspiron Core i7</a>
-                            </h4>
-                            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">15 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                    	</div>
-                	</div>
-            	</div>
-            	
-            	<div class="col-sm-4 col-lg-4 col-md-4">
-                	<div class="thumbnail">
-                    	<h:graphicImage value="/resources/gfx/notebook.jpg" style="max-width: 85%;"/>
-                        <div class="caption">
-                            <h4 class="pull-right">R$900,00</h4>
-                            <h4><a href="#">Notebook Dell Inspiron Core i7</a>
-                            </h4>
-                            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">15 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                    	</div>
-                	</div>
-                	
-                	<div class="thumbnail">
-                    	<h:graphicImage value="/resources/gfx/123.jpg"/>
-                        <div class="caption">
-                            <h4 class="pull-right">R$300,00</h4>
-                            <h4><a href="#">NoteBook Samsung</a>
-                            </h4>
-                            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">15 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                    	</div>
-                	</div>
-            	</div>
-            	
-            	<div class="col-sm-4 col-lg-4 col-md-4">
-                	<div class="thumbnail">
-                    	<h:graphicImage value="/resources/gfx/game.jpg" style="max-width: 45%;"/>
-                        <div class="caption">
-                            <h4 class="pull-right">R$20,00</h4>
-                            <h4><a href="#">Ghost Recon Wildlands - PS4</a>
-                            </h4>
-                            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">15 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                    	</div>
-                	</div>
-                	
-                	<div class="thumbnail">
-                    	<h:graphicImage value="/resources/gfx/123.jpg"/>
-                        <div class="caption">
-                            <h4 class="pull-right">R$300,00</h4>
-                            <h4><a href="#">NoteBook Samsung</a>
-                            </h4>
-                            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">15 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                    	</div>
-                	</div>
-            	</div>
-            	
-            	
-            	
-            </div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="materialContainer">
+			<div class="box">
+				<div class="title">#{resources['label.global.logar']}</div>
+				<div class="input">
+					<label for="name">#{resources['label.global.usuario']}</label> 
+					<input type="text" name="name" id="name"/> 
+					<span class="spin"></span>
+				</div>
+				<div class="input">
+					<label for="pass">#{resources['label.global.senha']}</label> 
+					<input type="password" name="pass" id="pass"/> 
+					<span class="spin"></span>
+				</div>
+				<div class="button login">
+					<button>
+						<span>#{resources['label.global.entrar']}</span> <i class="fa fa-check"></i>
+					</button>
+				</div>
+				<a href="" class="pass-forgot">#{resources['label.global.esqueceuSenha']}</a>
+			</div>
+			<div class="overbox">
+				<div class="material-button alt-2">
+					<span class="shape"></span>
+				</div>
+	
+				<div class="title">#{resources['label.global.novoCadastro']}</div>
+	
+				<div class="input">
+					<label for="regname">#{resources['label.global.nome']}</label> 
+					<input type="text" name="regname" id="regname"/> 
+					<span class="spin"></span>
+				</div>
+				<div class="input">
+					<label for="regname">#{resources['label.global.email']}</label> 
+					<input type="text" name="regemail" id="regemail"/> 
+					<span class="spin"></span>
+				</div>
+				<div class="input">
+					<label for="regpass">#{resources['label.global.senha']}</label> 
+					<input type="password" name="regpass" id="regpass"/>
+					<span class="spin"></span>
+				</div>
+				<div class="input">
+					<label for="reregpass">#{resources['label.global.confirmacaoSenha']}</label> 
+					<input type="password" name="reregpass" id="reregpass"/> 
+					<span class="spin"/>
+				</div>
+				<div class="button">
+					<button>
+						<span>#{resources['label.global.cadastar']}</span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+		<div class="container" id="content">
+			<ui:insert name="content" />
 	    </div>
-   
+	    
    		<div id="footer">
             <!-- <h:graphicImage value="/resources/gfx/logoOpa.png" alt="Weld logo"/> -->
             <p>
-               Todos os direitos reservados.<br/>
+               #{resources['label.global.rodape']}<br/>
             </p>
         </div>
    </h:body>

@@ -1,31 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-xmlns:ui="http://java.sun.com/jsf/facelets"
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:h="http://java.sun.com/jsf/html"
-template="/WEB-INF/templates/default.xhtml">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/WEB-INF/templates/default.xhtml">
 
-   <ui:define name="content">
-      <h1>Hello World!</h1>
-      <p>Your CDI bean <code>HelloWorld</code> says <span style="color: blue;">#{helloWorld.text}</span> using the Unified EL.</p>
-      <h:form id="bv">
-         <h2>Bean Validation examples</h2>
-         <p>Enforces annotation-based constraints defined on the model class.</p>
-         <table>
-            <tr>
-               <th style="text-align: right;">
-                  <h:outputLabel for="letters" value="Letters:"/>
-               </th>
-               <td>
-                  <h:inputText id="letters" value="#{helloWorld.letters}"/>
-               </td>
-            </tr>
-         </table>
-         <p>
-            <h:commandButton id="check" action="check" value="Check values"/>
-            <h:outputText value=" All clear!" rendered="#{facesContext.postback and empty facesContext.messageList}" style="color: green;"/>
-         </p>
-      </h:form>
-   </ui:define>
+	<ui:define name="content">
+
+		<h:body styleClass="hold-transition skin-nsa sidebar-mini #{customIdentity.menuCollapse?'sidebar-collapse':'' }">
+			<div class="row">
+				<div class="col-sm-4 col-lg-4 col-md-4">
+					<div class="thumbnail">
+						<h:graphicImage value="/resources/gfx/motoZ.jpg" style="max-width: 50%;" />
+						<div class="caption">
+							<h4 class="pull-right">R$300,00</h4>
+							<h4>
+								<a href="#">Moto Z play</a>
+							</h4>
+							<p>
+								See more snippets like this online store item at <a	target="_blank" href="http://www.bootsnipp.com">Bootsnipp -	http://bootsnipp.com</a>.
+							</p>
+						</div>
+						<div class="ratings">
+							<p class="pull-right">15 reviews</p>
+							<p>
+								<span class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- <div class="col-sm-4 col-lg-4 col-md-4">
+					<div class="thumbnail">
+						<h:graphicImage value="/resources/gfx/notebook.jpg"
+							style="max-width: 85%;" />
+						<div class="caption">
+							<h4 class="pull-right">R$900,00</h4>
+							<h4>
+								<a href="#">Notebook Dell Inspiron Core i7</a>
+							</h4>
+							<p>
+								See more snippets like this online store item at <a	target="_blank" href="http://www.bootsnipp.com">Bootsnipp -	http://bootsnipp.com</a>.
+							</p>
+						</div>
+						<div class="ratings">
+							<p class="pull-right">15 reviews</p>
+							<p>
+								<span class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span>
+							</p>
+						</div>
+					</div>
+				</div> -->
+
+				<!-- <div class="col-sm-4 col-lg-4 col-md-4">
+					<div class="thumbnail">
+						<h:graphicImage value="/resources/gfx/game.jpg"
+							style="max-width: 45%;" />
+						<div class="caption">
+							<h4 class="pull-right">R$20,00</h4>
+							<h4>
+								<a href="#">Ghost Recon Wildlands - PS4</a>
+							</h4>
+							<p>
+								See more snippets like this online store item at <a	target="_blank" href="http://www.bootsnipp.com">Bootsnipp -	http://bootsnipp.com</a>.
+							</p>
+						</div>
+						<div class="ratings">
+							<p class="pull-right">15 reviews</p>
+							<p>
+								<span class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span> <span
+									class="glyphicon glyphicon-star"></span>
+							</p>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</h:body>
+	</ui:define>
 </ui:composition>

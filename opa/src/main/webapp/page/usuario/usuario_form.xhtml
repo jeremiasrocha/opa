@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="content">
+
+	<h:form id="idFormUsuario">
+		<div class="box">
+			<div class="box-body">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label>#{resources['label.global.nome']} *</label>
+						
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label>#{resources['label.global.email']} *</label>
+							
+						</div>
+					</div>
+					
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label>#{resources['label.global.senha']} *</label>
+							
+						</div>
+					</div>
+					
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label>#{resources['label.global.confirmacaoSenha']} *</label>
+							
+						</div>
+					</div>
+				</div>
+				
+				<!-- <div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<nsa:senha id="idSenhaUsuario" value="#{usuarioController.to.usuario.senha}" label="#{resources['label.global.senha']}" required="true" />
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label>#{resources['label.global.confirmacaoSenha']} *</label>
+							<nsa:inputSecret id="idSenhaConfirmacao" value="#{usuarioController.to.usuario.senhaConfirmacao}" required="true" redisplay="true" 
+									label="#{resources['label.global.confirmacaoSenha']}" maxlength="40" idSenha="idFormUsuario:idSenhaUsuario:idSenhaUsuario:idInput">
+								<f:ajax execute="@this" event="clientEvent" render="idMessages @this"/>
+								<f:validator validatorId="senhaConfirmacaoValidator" for="input"/>
+							</nsa:inputSecret>
+						</div>
+					</div>
+				</div> -->
+
+			</div>
+		</div>
+	</h:form>
+
+	<script>
+		//<![CDATA[
+		function Security(val, tamanho) {
+			document.getElementById('trQualidadeSenha').style.display = 'inline';
+			if( val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[A-Z]/) != -1 && val.search(/[0-9]/) != -1 
+				||val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[A-Z]/) != -1 && val.search(/[@!#$%&*+=?|-]/) 
+				||val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[@!#$%&*+=?|-]/) != -1 && val.search(/[0-9]/) 
+				||val.length >= tamanho  && val.search(/[@!#$%&*+=?|-]/) != -1 && val.search(/[A-Z]/) != -1 && val.search(/[0-9]/)) {
+						document.getElementById('mensagem').innerHTML = "forte";
+						qualidadeSenha = 'forte';
+		  	} else {
+		  		if( val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[A-Z]/) != -1 
+		  			||val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[0-9]/) != -1 
+		  			||val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[@!#$%&*+=?|-]/) != -1
+						||val.length >= tamanho && val.search(/[A-Z]/) != -1 && val.search(/[0-9]/) != -1
+						||val.length >= tamanho && val.search(/[A-Z]/) != -1 && val.search(/[@!#$%&*+=?|-]/) != -1
+						||val.length >= tamanho && val.search(/[0-9]/) != -1 && val.search(/[@!#$%&*+=?|-]/) != -1){
+	
+		  				qualidadeSenha = 'média';
+						document.getElementById('mensagem').innerHTML = "média";
+		  				
+		  			} 
+		  			else {
+		  				if(val.length >= tamanho)
+		  				{
+		  					qualidadeSenha = 'fraca';
+			  				document.getElementById('mensagem').innerHTML = "fraca";
+		  			}
+		  		}
+		  	}
+		}
+
+		//]]>
+	</script>
+	</ui:define>
+</ui:composition>
