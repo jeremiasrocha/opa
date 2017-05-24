@@ -8,7 +8,6 @@
 
 	<ui:define name="content">
 
-		<h:body styleClass="hold-transition skin-nsa sidebar-mini #{customIdentity.menuCollapse?'sidebar-collapse':'' }">
 			<div class="row">
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<div class="thumbnail">
@@ -19,74 +18,19 @@
 								<a href="#">Moto Z play</a>
 							</h4>
 							<p>
-								See more snippets like this online store item at <a	target="_blank" href="http://www.bootsnipp.com">Bootsnipp -	http://bootsnipp.com</a>.
+								
 							</p>
 						</div>
 						<div class="ratings">
 							<p class="pull-right">15 reviews</p>
 							<p>
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span>
 							</p>
 						</div>
 					</div>
 				</div>
-
-				<!-- <div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
-						<h:graphicImage value="/resources/gfx/notebook.jpg"
-							style="max-width: 85%;" />
-						<div class="caption">
-							<h4 class="pull-right">R$900,00</h4>
-							<h4>
-								<a href="#">Notebook Dell Inspiron Core i7</a>
-							</h4>
-							<p>
-								See more snippets like this online store item at <a	target="_blank" href="http://www.bootsnipp.com">Bootsnipp -	http://bootsnipp.com</a>.
-							</p>
-						</div>
-						<div class="ratings">
-							<p class="pull-right">15 reviews</p>
-							<p>
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span>
-							</p>
-						</div>
-					</div>
-				</div> -->
-
-				<!-- <div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
-						<h:graphicImage value="/resources/gfx/game.jpg"
-							style="max-width: 45%;" />
-						<div class="caption">
-							<h4 class="pull-right">R$20,00</h4>
-							<h4>
-								<a href="#">Ghost Recon Wildlands - PS4</a>
-							</h4>
-							<p>
-								See more snippets like this online store item at <a	target="_blank" href="http://www.bootsnipp.com">Bootsnipp -	http://bootsnipp.com</a>.
-							</p>
-						</div>
-						<div class="ratings">
-							<p class="pull-right">15 reviews</p>
-							<p>
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span>
-							</p>
-						</div>
-					</div>
-				</div> -->
 			</div>
-		</h:body>
+			
+			<ui:include src="/page/usuario/usuario_form.xhtml" />
+			
 	</ui:define>
 </ui:composition>

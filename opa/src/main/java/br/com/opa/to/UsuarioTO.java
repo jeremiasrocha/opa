@@ -1,13 +1,25 @@
 package br.com.opa.to;
 
 import java.util.List;
+
 import br.com.opa.entity.Usuario;
 
 public class UsuarioTO /*extends NsaTO*/ {
 
     private Usuario usuario;
+    private String confirmarSenha;
     private List<Usuario> usuarios;
-    /*private List<Perfil> listaPerfil;*/
+    
+    public String getConfirmarSenha() {
+    	if (confirmarSenha == null) {
+			confirmarSenha = new String();
+		}
+		return confirmarSenha;
+	}
+
+	public void setConfirmarSenha(String confirmarSenha) {
+		this.confirmarSenha = confirmarSenha;
+	}
 
 	public Usuario getUsuario() {
 		if (usuario == null) {

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<cc:interface>
+	<cc:attribute name="id" required="true" />
+	<cc:attribute name="titulo" required="true" />
+	<cc:attribute name="pagina" required="true" />
+	<cc:attribute name="render" default="true" />
+	<cc:attribute name="listenerFechar" method-signature="void actionListener()"/>
+	<cc:attribute name="temListenerfechar" default="false"/>
+	<cc:attribute name="tamanho" default="modal-lg" shortDescription="Grande: modal-lg, Medio: modal-md: Pequeno: modal-sm" />
+</cc:interface>
+
+<cc:implementation>
+
+	<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" id="#{cc.attrs.id}">
+		<div class="modal-dialog #{cc.attrs.tamanho}">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">×</span>
+						<span class="sr-only">#{resources['label.global.fechar']}</span>
+					</button>
+					<h3 class="modal-title" id="lineModalLabel">#{cc.attrs.titulo}</h3>
+				</div>
+				<div class="modal-body">
+					<h:messages infoClass="alert-message alert-message-success" errorClass="alert-message alert-message-danger" 
+							warnClass="alert-message alert-message-warning" styleClass="alert-nsa" id="idMessagesModal"/>
+					<h:panelGroup layout="block" id="modalContent">
+						<h:panelGroup layout="block" rendered="#{cc.attrs.render}">
+							<ui:include src="#{cc.attrs.pagina}" />
+						</h:panelGroup>
+					</h:panelGroup>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h:commandButton styleClass="hidden" id="btnClose#{cc.attrs.id}">
+		<f:ajax execute="@this" render="#{cc.attrs.id}:modalContent" listener="#{cc.attrs.listenerFechar}" event="click" />
+	</h:commandButton>
+	<script type="text/javascript">
+		$('##{cc.attrs.id}').on('hidden.bs.modal', function () {
+			if (#{cc.attrs.temListenerfechar}) {
+				document.getElementById('#{cc.attrs.id}:btnClose#{cc.attrs.id}').click();
+			}
+		})
+	</script>
+
+</cc:implementation>
+
+</html>
