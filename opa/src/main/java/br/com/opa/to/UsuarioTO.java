@@ -1,10 +1,11 @@
 package br.com.opa.to;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.opa.entity.Usuario;
 
-public class UsuarioTO /*extends NsaTO*/ {
+public class UsuarioTO {
 
     private Usuario usuario;
     private String confirmarSenha;
@@ -33,6 +34,9 @@ public class UsuarioTO /*extends NsaTO*/ {
 	}
 
 	public List<Usuario> getUsuarios() {
+		if (usuarios == null) {
+			usuarios = new ArrayList<>();
+		}
 		return usuarios;
 	}
 

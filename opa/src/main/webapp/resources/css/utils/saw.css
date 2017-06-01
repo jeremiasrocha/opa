@@ -1,0 +1,101 @@
+/* hmtl styles */
+
+/* * { border: 1px solid black; } */
+
+a {
+	display: block;
+	text-decoration: none;
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: Verdana, sans-serif;
+}
+
+input[type=submit], input[type=button] {
+	border: none;
+	margin: 2px;
+}
+
+select {
+	min-width: 130px;
+}
+
+label {
+	/* border: 1px solid black; */
+	font-size: 11px;
+	margin-right: 8px;
+}
+
+table {
+	width: 100% !important;
+	border-collapse: separate;
+	border-spacing: 2px;
+	font-size: 11px;
+	text-align: center;
+	/* margin-bottom: 8px; */
+}
+
+.table {
+		border-color: #9C9;
+    border-style: solid;
+    border-width: 1px;
+    color: #000;
+    font-family: Verdana;
+    font-size: 11px;
+    padding: 1px;
+    background: #fff !important;
+}
+
+/* classes */
+
+.barra {
+	color: #fff;
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	height: auto;
+	line-height: 30px;
+	text-align: center;
+	width: auto;
+	position: relative;
+	background: #80ad55;
+	border-top: 2px solid white;
+	border-right: 2px solid white;
+	border-left: 2px solid white;
+}
+
+.checkbox {
+	/* background: #f00; */
+	float: none; /* */
+	display: block;
+	padding: 2px;
+	text-align: left;
+	/* border: 1px solid #9c9; */
+}
+
+.FundoCelulasNomes {
+	background-color: #F0F8E9;
+	border-color: #9C9;
+	border-style: solid;
+	border-width: 1px;
+	color: #000;
+	font-family: Verdana;
+	font-size: 11px;
+	height: auto;
+	overflow: auto;
+	padding: 2px;
+	vertical-align: middle;
+	margin: 0 2px 2px 2px;
+}
+
+.gridTitlebar {
+	background: #80ad55;
+	color: #fff;
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 25px;
+}

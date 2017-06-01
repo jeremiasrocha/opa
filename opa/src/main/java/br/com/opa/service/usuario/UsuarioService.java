@@ -41,13 +41,11 @@ public class UsuarioService extends ServiceAbstract<Usuario> {
 
 	private void prepararParaAlterar(Usuario usuario) {
 		usuario.setDataAlteracao(new Date());
-		usuario.setTelefone(UtilString.removeNaoNumericos(usuario.getTelefone()));
 	}
 
 	private void prepararParaIncluir(Usuario usuario) {
 		usuario.setDataCadastro(new Date());
 		usuario.setStatus(StatusUsuarioEnum.A);
-		usuario.setTelefone(UtilString.removeNaoNumericos(usuario.getTelefone()));
 	}
 
 	@Override

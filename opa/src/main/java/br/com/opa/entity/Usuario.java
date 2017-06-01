@@ -12,6 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import br.com.opa.enums.PerfilUsuarioEnum;
 import br.com.opa.enums.StatusUsuarioEnum;
 
 /**
@@ -32,16 +33,14 @@ public class Usuario implements java.io.Serializable {
 	private String login;
 	
 	@Column(name = "perfil", nullable = false, length = 1)
-	private String perfil;
+	@Enumerated (EnumType.STRING)
+	private PerfilUsuarioEnum perfil;
 	
 	@Column(name = "senha", nullable = false, length = 100)
 	private String senha;
 	
 	@Column(name = "nome", nullable = false, length = 100)
 	private String nome;
-	
-	@Column(name = "telefone", length = 15)
-	private String telefone;
 	
 	@Column(name = "email", nullable = false, length = 100)
 	private String email;
@@ -88,11 +87,11 @@ public class Usuario implements java.io.Serializable {
 		this.login = login;
 	}
 
-	public String getPerfil() {
+	public PerfilUsuarioEnum getPerfil() {
 		return this.perfil;
 	}
 
-	public void setPerfil(String perfil) {
+	public void setPerfil(PerfilUsuarioEnum perfil) {
 		this.perfil = perfil;
 	}
 
@@ -110,15 +109,6 @@ public class Usuario implements java.io.Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	
-	public String getTelefone() {
-		return this.telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
 	}
 
 	public String getEmail() {

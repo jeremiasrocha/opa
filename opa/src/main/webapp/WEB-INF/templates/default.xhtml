@@ -11,80 +11,92 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
 	    <link rel="shortcut icon" href = "#{request.contextPath}/resources/gfx/logoOpa.png" type="image/x-icon" />
-	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap.min.css" />
-	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap.css" />
-	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/screen.css" />
-	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/shop-homepage.css" />
-	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/login.css" />
-	    <script src="#{request.contextPath}/resources/js/bootstrap.js"></script>
-	    <script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
-	    <script src="#{request.contextPath}/resources/jquery/jquery.js"></script>
-	    <script src="#{request.contextPath}/resources/js/asd.js"></script>
+
+	    <script src="#{request.contextPath}/resources/js/jQuery/jQuery-2.1.4.min.js"></script>
 	    
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/bootstrap/bootstrap/css/bootstrap.css" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/bootstrap/bootstrap/css/bootstrap.css.map" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/screen/screen.css" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/login/login.css" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/background/shop-homepage.css" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/utils/nsa.css" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/utils/saw.css" />
+	    <link rel="stylesheet" href="#{request.contextPath}/resources/css/utils/tab.css" />
+	    
+	    <script src="#{request.contextPath}/resources/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+	    <script src="#{request.contextPath}/resources/js/jQueryRotate/jQueryRotate.js"></script>
 	</h:head>
-   
-    <h:body >
-	   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	   	<h:form id="formMenuTopo" prependId="false">
-	        <div class="container">
-	            <div class="navbar-header">
-	                <h:graphicImage value="/resources/gfx/logoOpaPequena.png"/>
-	            </div>
-	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	                <ul class="nav navbar-nav">
-						<h:commandButton styleClass="btn btn-default" value="#{resources['label.global.login']}"  />
-						
-						<h:commandButton styleClass="btn btn-default" value="#{resources['label.global.login']}" />
-	                    
-	                    <a href="#" class="btn btn-default" role="button" style="font-size: 1em;" id="usuarioCad"
-	                    	data-toggle="modal" data-target="#idModalUsuario">#{resources['label.global.novoCadastro']}</a>
-	                    
-	                </ul>
-	            </div>
-	        </div>
-	        </h:form>
-	    </nav>
-	        <div class="row">
-	   			<div class="col-md-9">
-	   				<div class="row carousel-holder">
-	                    <div class="col-md-12">
-	                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-	                            <ol class="carousel-indicators">
-	                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-	                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-	                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-	                            </ol>
-	                            	<div class="carousel-inner">
-		                                <div class="item active">
-			                                <h:graphicImage value="/resources/gfx/bannerPrincipalWalmart.jpg" />
-			                                <div class="item">
-			                                    <img class="slide-image" src="http://placehold.it/800x300" alt=""/>
-			                                </div>
-			                                <div class="item">
-			                                    <img class="slide-image" src="http://placehold.it/800x300" alt=""/>
-			                                </div>
-		                            	</div>
-			                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-			                                <span class="glyphicon glyphicon-chevron-left"></span>
-			                            </a>
-			                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-			                                <span class="glyphicon glyphicon-chevron-right"></span>
-			                            </a>
-		                        	</div>
-	                    	</div>
-	                	</div>
-	    			</div> 
-		   		</div>
-			</div>
-		<div class="container" id="content">
-			<ui:insert name="content" />
-	    </div>
-   		<div id="footer">
-            <!-- <h:graphicImage value="/resources/gfx/logoOpa.png" alt="Weld logo"/> -->
-            <p>
-               #{resources['label.global.rodape']}<br/>
-            </p>
-        </div>
-        
-   </h:body>
+
+	<h:body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<h:graphicImage value="/resources/gfx/logoOpaPequena.png" />
+			
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="#" class="dropdown-toggle" id="usuarioCad" data-toggle="modal" data-target="#modalLogin">
+						<b>Cadastre-se</b>
+					</a>
+				</li>
+
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<b>Login</b>
+				  <span class="caret"></span>
+				</a>
+					<ul id="login-dp" class="dropdown-menu">
+						<li>
+							<div class="row">
+								<div class="col-md-12">
+									LOGIN
+									<hr class="colorgraph"></hr>
+									<form class="form" role="form" method="post" action="login"
+										accept-charset="UTF-8" id="login-nav">
+										<div class="form-group">
+											<label class="sr-only" for="exampleInputEmail2">
+												E-mail </label> <input type="text" class="form-control"
+												id="emailLogin" placeholder="E-mail" />
+										</div>
+										<div class="form-group">
+											<label class="sr-only" for="exampleInputPassword2">
+												Password </label> <input type="password" class="form-control"
+												id="senhaLogin" placeholder="Senha" />
+											<div class="help-block text-right">
+												<a href="">Esqueceu sua Senha?</a>
+											</div>
+										</div>
+										<div class="form-group">
+											<button type="submit" class="btn btn-primary btn-block">Entrar</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</li>
+					</ul></li>
+			</ul>
+			
+			
+			
+		</div>
+		
+		
+		
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			
+		</div>
+	</div>
+	</nav>
+
+	<div class="container" id="content">
+		<ui:insert name="content" />
+	</div>
+	<div id="footer">
+		<!-- <h:graphicImage value="/resources/gfx/logoOpa.png" alt="Weld logo"/> -->
+		<p>
+			#{resources['label.global.rodape']}<br />
+		</p>
+	</div>
+
+</h:body>
 </html>
