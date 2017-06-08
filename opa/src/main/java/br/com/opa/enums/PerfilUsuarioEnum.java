@@ -2,12 +2,12 @@ package br.com.opa.enums;
 
 public enum PerfilUsuarioEnum {
 	
-	GESTOR("label.perfil.code.usuario.gestor"),
-	REVISOR("label.perfil.code.usuario.revisor"),
-	CONTRATADO("label.perfil.code.usuario.contratado"),
-	COLABORADOR("label.perfil.code.usuario.colaborador"),
-	OPA("label.perfil.code.usuario.opa"),
-	COMUM("label.perfil.code.usuario.comum");
+	GESTOR("label.perfil.usuario.gestor"),
+	REVISOR("label.perfil.usuario.revisor"),
+	CONTRATADO("label.perfil.usuario.contratado"),
+	COLABORADOR("label.perfil.usuario.colaborador"),
+	OPA("label.perfil.usuario.opa"),
+	COMUM("label.perfil.usuario.comum");
 	
 	private PerfilUsuarioEnum(String text) {
 		this.text = text;

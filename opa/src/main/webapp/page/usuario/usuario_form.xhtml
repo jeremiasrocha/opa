@@ -8,62 +8,70 @@
 	<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
    		<div class="modal-dialog">
    			<div class="modal-content">
-	      		<div class="modal-header">
-					<h1>Novo Usuário</h1>
+	      		<div class="modal-header" align="center">
+					<h1>#{resources['label.global.novoCadastro']}</h1>
 	      		</div>
 	      		<div class="modal-body">
 					  <h:form id="idFormUsuario" prependId="false">
 					  	<div class="form-group">
-							<h:selectOneRadio id="radioPerfil" styleClass="itemParametro-radio" required="true" 
+					  		<label for="inputNome">#{resources['label.global.tipoDeAcesso']}</label>
+							<h:selectOneRadio id="radioPerfil" styleClass="itemParametro-radio" 
 									label="#{resources['label.perfil.usuario.colaborador']}"
 									value="#{usuarioController.to.usuario.perfil}"
 									onclick="divCamposSomenteColaborador();">
-								<f:selectItem itemLabel="#{resources['label.perfil.usuario.colaborador']}" />
-								<f:selectItem itemLabel="#{resources['label.perfil.usuario.contratado']}" />
+								<f:selectItems value="#{combosBean.listaPerfilCadastro}" var="perfil" itemValue="#{perfil}" itemLabel="#{resources[perfil.text]}" />
 							</h:selectOneRadio>
-								
+							<h:message for="radioPerfil"/>
   						</div>
-					  					  
+
 						<div class="form-group">
-							<label style="margin-right: 550px" for="inputNome">Nome</label>
-    						<input type="text" class="form-control" id="nome" placeholder="Nome" />
-  						</div>
-  						<div class="form-group">
-  							<label style="margin-right: 550px" for="inputEmail1">E-mail</label>
-    						<input type="text" class="form-control" id="email" placeholder="E-mail" />
-  						</div>
-  						<div class="form-group">
-  							<label style="margin-right: 550px" for="inputSenha">Senha</label>
-    						<input type="password" class="form-control" id="senha" placeholder="Senha" />
-  						</div>
-  						<div class="form-group">
-  							<label style="margin-right: 550px" for="inputConfirmarSenha">Confirmar Senha</label>
-    						<input type="password" class="form-control" id="confirmarSenha" placeholder="Confirmar Senha" />
+							<label for="inputNome">#{resources['label.global.nome']}</label>
+							<h:inputText value="#{usuarioController.to.usuario.nome}" class="form-control" id="nomeUsuario">
+								<f:passThroughAttribute name="placeholder" value="Nome" />
+							</h:inputText>
   						</div>
   						
+  						<div class="form-group">
+							<label for="inputEmail">#{resources['label.global.email']}</label>
+							<h:inputText value="#{usuarioController.to.usuario.email}" class="form-control" id="emailUsuario">
+								<f:passThroughAttribute name="placeholder" value="E-mail" />
+							</h:inputText>
+  						</div>
   						
-  						<h:panelGroup id="idDadosContratado" rendered="asdfsadlkfjl.to.asdlkfj eq Contratado" layout="block">
-	  						<div id="divDadosContratado" style="display: none;">
-								<div class="form-group">
-									<label for="inputNome">Nome</label>
-		    						<input type="text" class="form-control" id="nome" placeholder="Nome" />
-		  						</div>
-		  						<div class="form-group">
-		  							<label for="inputEmail1">E-mail</label>
-		    						<input type="text" class="form-control" id="email" placeholder="E-mail" />
-		  						</div>
-		  						<div class="form-group">
-		  							<label for="inputSenha">Senha</label>
-		    						<input type="password" class="form-control" id="senha" placeholder="Senha" />
-		  						</div>
+  						<div id="divDadosSomenteContratado" style="display: none;">
+	  						<div class="form-group">
+	  							<label for="inputEmail1">E-mail</label>
+	    						<input type="text" class="form-control" id="email" placeholder="E-mail" />
 	  						</div>
-  						</h:panelGroup>
+	  						<div class="form-group">
+	  							<label for="inputSenha">Senha</label>
+	    						<input type="password" class="form-control" id="senha" placeholder="Senha" />
+	  						</div>
+  						</div>
+  						
   						<div class="form-group">
-							<button type="submit" name="login" class="btn btn-primary btn-block">Cadastrar</button>
+							<label for="inputSenha">#{resources['label.global.senha']}</label>
+							<h:inputSecret value="#{usuarioController.to.usuario.senha}" class="form-control" id="senhaUsuario">
+								<f:passThroughAttribute name="placeholder" value="Senha" />
+							</h:inputSecret>
+  						</div>
+  						  						
+  						<div class="form-group">
+							<label for="inputConfirmarSenha">#{resources['label.global.confirmacaoSenha']}</label>
+  						</div>
+
+  						<div class="form-group" align="center">
+							
+							<!-- <button type="submit" name="login"  class="btn btn-primary btn-block">Cadastrar</button> -->
+							
+							<h:commandLink action="#{usuarioController.incluir()}"	styleClass="btn btn-app" type="button" binding="#{save}">
+								<i class="fa fa-save"></i>
+								<h:outputText value="#{resources['label.global.cadastar']}" />
+							</h:commandLink>
+							
 						</div>
 					  </h:form>
 				</div>
-				
 			</div>
 	  </div>
 	</div>
