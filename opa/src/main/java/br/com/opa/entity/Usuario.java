@@ -1,6 +1,4 @@
 package br.com.opa.entity;
-// default package
-// Generated 09/05/2017 16:05:30 by Hibernate Tools 4.3.5.Final
 
 import java.util.Date;
 
@@ -8,7 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,17 +23,16 @@ import br.com.opa.enums.StatusUsuarioEnum;
  */
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "opa_usuario")
 public class Usuario implements java.io.Serializable {
 
-	private static final long serialVersionUID = -6224361341258353200L;
+	private static final long serialVersionUID = 6352462840433490145L;
 
 	@Id
 	@Column(name = "id", unique = true, nullable = false)
+	@SequenceGenerator(name="SEQ_USUARIO", sequenceName="OPA_SEQ_USUARIO")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_USUARIO")
 	private int id;
-	
-	@Column(name = "login", nullable = false, length = 50)
-	private String login;
 	
 	@Column(name = "perfil", nullable = false, length = 1)
 	@Enumerated (EnumType.STRING)
@@ -48,17 +48,17 @@ public class Usuario implements java.io.Serializable {
 	private String email;
 	
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "data_cadastro", nullable = false)
+	private Date dataCadastro;
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data_exclusao")
 	private Date dataExclusao;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data_inativacao")
 	private Date dataInativacao;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "data_cadastro")
-	private Date dataCadastro;
-
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data_alteracao")
 	private Date dataAlteracao;
@@ -79,14 +79,6 @@ public class Usuario implements java.io.Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getLogin() {
-		return this.login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
 	}
 
 	public PerfilUsuarioEnum getPerfil() {

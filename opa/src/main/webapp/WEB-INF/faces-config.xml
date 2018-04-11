@@ -20,4 +20,81 @@
 		<message-bundle>messages</message-bundle>
 	</application>
 	
+	<navigation-rule>
+        <navigation-case>
+           <from-outcome>iniciarEdicaoUsuario</from-outcome>
+           <to-view-id>/page/usuario/usuario_edit.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+	
+	<navigation-rule>
+        <navigation-case>
+           <from-outcome>editarUsuario</from-outcome>
+           <to-view-id>/page/usuario/usuario_edit.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+	
+	<navigation-rule>
+        <navigation-case>
+           <from-outcome>viewUsuario</from-outcome>
+           <to-view-id>/page/usuario/usuario_view.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+	
+    <navigation-rule>
+        <navigation-case>
+           <from-outcome>listarUsuario</from-outcome>
+           <to-view-id>/page/usuario/usuario_list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
+           <from-outcome>listarCategoria</from-outcome>
+           <to-view-id>/page/categoria/categoria_list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
+           <from-outcome>listarContratado</from-outcome>
+           <to-view-id>/page/contratado/contratado_list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
+           <from-outcome>listarOferta</from-outcome>
+           <to-view-id>/page/oferta/oferta_list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+	
+	<navigation-rule>
+        <navigation-case>
+           <from-outcome>abrirCadastroUsuario</from-outcome>
+           <to-view-id>/page/usuario/usuario_form_list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+	
+	<navigation-rule>
+        <navigation-case>
+           <from-outcome>abrirCadastroOferta</from-outcome>
+           <to-view-id>/page/oferta/oferta_form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
+           <from-outcome>abrirCadastroCategoria</from-outcome>
+           <to-view-id>/page/categoria/categoria_form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
+           <from-outcome>abrirParametrosContratado</from-outcome>
+           <to-view-id>/page/contratado/parametros_contratado_form.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
 </faces-config>

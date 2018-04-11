@@ -6,18 +6,14 @@ public enum StatusUsuarioEnum {
 	I("label.global.inativo"),
 	E("label.global.excluido");
 	
-	private StatusUsuarioEnum(String key){
-		setKey(key);
+	private StatusUsuarioEnum(String text){
+		this.text = text;
 	}
 	
-	private String key;
+	private String text;
 
-	public String getKey() {
-		return key;
-	}
-
-	public void setKey(String key) {
-		this.key = key;
+	public String getText() {
+		return text;
 	}
 	
 }

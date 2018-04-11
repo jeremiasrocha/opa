@@ -9,6 +9,8 @@ import com.ocpsoft.pretty.faces.annotation.URLMappings;
 		@URLMapping(id = "home", pattern = "/home", viewId = "/home.jsf"),
 		@URLMapping(id = "logout", pattern = "/logout", viewId = "/home.jsf"),
 		@URLMapping(id = "usuario", pattern = "/usuario", viewId = "/page/usuario/usuario_form.jsf"),
+		@URLMapping(id = "oferta", pattern = "/oferta", viewId = "/page/oferta/oferta_form.jsf"),
+		
 		})
 public class OpaViewConfig {
 

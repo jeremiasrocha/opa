@@ -9,10 +9,12 @@ import javax.inject.Inject;
 
 import br.com.opa.dao.OpaDataAbstract;
 import br.com.opa.dao.usuario.UsuarioDAO;
+import br.com.opa.entity.Contratado;
 import br.com.opa.entity.Usuario;
 import br.com.opa.enums.OpaMensagemEnum;
 import br.com.opa.exception.usuario.UsuarioException;
 import br.com.opa.service.ServiceAbstract;
+import br.com.opa.service.contratado.ContratadoService;
 import br.com.opa.to.FiltroTO;
 import br.com.opa.to.UsuarioTO;
 
@@ -20,12 +22,17 @@ import br.com.opa.to.UsuarioTO;
 public class UsuarioService extends ServiceAbstract<Usuario> {
 
 	private @Inject UsuarioDAO usuarioDAO;
+	private @Inject ContratadoService contratadoService;
 
 	@Override
 	protected OpaDataAbstract<Usuario> getEntityBean() {
 		return usuarioDAO;
 	}
 
+	public void incluirContratadoAPartirDoUsuario(Contratado contratado) throws Exception {
+		contratadoService.incluir(contratado);
+	}
+	
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public Usuario login(String userId, String password) throws Exception {
 		Usuario usuario = usuarioDAO.login(userId,password);

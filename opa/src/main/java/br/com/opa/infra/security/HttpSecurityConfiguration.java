@@ -19,9 +19,11 @@ public class HttpSecurityConfiguration {
 			.forPath("/recuperarsenha/*").unprotected()
 			.forPath("/home/*").unprotected()
 			.forPath("/home").unprotected()
+			.forPath("/opa/*").unprotected()
+			.forPath("/opa").unprotected()
+			.forPath("/page/*").unprotected()
+			.forPath("/page/").unprotected()
 		    .forPath("/logout").logout().redirectTo("/home");
-				
 	}
-	
 
 }

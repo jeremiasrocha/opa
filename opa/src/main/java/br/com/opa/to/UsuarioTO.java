@@ -3,11 +3,13 @@ package br.com.opa.to;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.opa.entity.Contratado;
 import br.com.opa.entity.Usuario;
 
 public class UsuarioTO {
 
     private Usuario usuario;
+    private Contratado contratado;
     private String confirmarSenha;
     private List<Usuario> usuarios;
     
@@ -42,6 +44,17 @@ public class UsuarioTO {
 
 	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
+	}
+
+	public Contratado getContratado() {
+		if (contratado == null) {
+			contratado = new Contratado();
+		}
+		return contratado;
+	}
+
+	public void setContratado(Contratado contratado) {
+		this.contratado = contratado;
 	}
 
 }

@@ -59,7 +59,7 @@ public class UsuarioDAO extends OpaDataAbstract<Usuario> {
 			Root<Usuario> root = criteria.from(Usuario.class);
 			return getManager().createQuery(
 					criteria.select(root)
-							.where(getCriteriaBuilder().equal(root.get("login"),
+							.where(getCriteriaBuilder().equal(root.get("email"),
 									userId),getCriteriaBuilder().equal(root.get("senha"),
 											password))).getSingleResult();
 		} catch (NoResultException e) {
@@ -109,14 +109,11 @@ public class UsuarioDAO extends OpaDataAbstract<Usuario> {
 
 	private Predicate[] comporFiltro(Root<Usuario> root, UsuarioTO usuarioTO, CriteriaQuery<?> criteria) {
 		List<Predicate> listaPredicate = new ArrayList<>();
-		/*if (!UtilNullEmpty.isNullOrEmpty(usuarioTO.getListaSituacao())) {
-			listaPredicate.add(comporFiltroPorSituacao(usuarioTO.getListaSituacao(),root));
-		}*/
+		if (!UtilNullEmpty.isNullOrEmpty(usuarioTO.getUsuario().getStatus())) {
+			listaPredicate.add(comporFiltroPorSituacao(usuarioTO.getUsuario().getStatus(),root));
+		}
 		if (!UtilNullEmpty.isNullOrEmpty(usuarioTO.getUsuario().getNome())) {
 			listaPredicate.add(comporFiltroPorNome(usuarioTO.getUsuario().getNome(), root));
-		}
-		if(!UtilNullEmpty.isNullOrEmpty(usuarioTO.getUsuario().getLogin())){
-			listaPredicate.add(comporFiltroPorLogin(usuarioTO.getUsuario().getLogin(), root));
 		}
 		if (!UtilNullEmpty.isNullOrEmpty(usuarioTO.getUsuario().getId())) {
 			listaPredicate.add(comporFiltroPorId(usuarioTO.getUsuario().getId(), root));
@@ -130,12 +127,15 @@ public class UsuarioDAO extends OpaDataAbstract<Usuario> {
 	private Predicate comporFiltroPorNome(String nome, Root<Usuario> root) {
 		return getCriteriaBuilder().like(getCriteriaBuilder().lower(getCriteriaBuilder().trim(root.<String>get("nome"))), "%"+nome.toLowerCase()+"%");
 	}
-	private Predicate comporFiltroPorLogin(String login, Root<Usuario> root) {
-		return getCriteriaBuilder().like(getCriteriaBuilder().lower(getCriteriaBuilder().trim(root.<String>get("login"))), "%"+login.toLowerCase()+"%");
-	}
+	
 	private Predicate comporFiltroPorId(Integer id, Root<Usuario> root) {
 		return getCriteriaBuilder().equal(root.<String>get("id"), id);
 	}
+	
+	private Predicate comporFiltroPorSituacao(StatusUsuarioEnum status, Root<Usuario> root) {
+		return getCriteriaBuilder().equal(root.<String>get("status"), status);
+	}
+	
 	private Predicate comporFiltroPorEmail(String email, Root<Usuario> root) {
 		return getCriteriaBuilder().like(getCriteriaBuilder().lower(getCriteriaBuilder().trim(root.<String>get("email"))), "%"+email.toLowerCase()+"%");
 	}

@@ -13,6 +13,8 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 	    <link rel="shortcut icon" href = "#{request.contextPath}/resources/gfx/logoOpa.png" type="image/x-icon" />
 
 	    <script src="#{request.contextPath}/resources/js/jQuery/jQuery-2.1.4.min.js"></script>
+	    <script src="#{request.contextPath}/resources/js/jQuery/jquery.maskedinput.min.js"></script>
+	    <script src="#{request.contextPath}/resources/js/jQuery/jquery.maskMoney.js"></script>
 	    
 	    <link rel="stylesheet" href="#{request.contextPath}/resources/bootstrap/bootstrap/css/bootstrap.css" />
 	    <link rel="stylesheet" href="#{request.contextPath}/resources/bootstrap/bootstrap/css/bootstrap.css.map" />
@@ -32,71 +34,151 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 	<div class="container">
 		<div class="navbar-header">
 			<h:graphicImage value="/resources/gfx/logoOpaPequena.png" />
-			
+		</div>
+		<div>
 			<ul class="nav navbar-nav">
-				<li>
-					<a href="#" class="dropdown-toggle" id="usuarioCad" data-toggle="modal" data-target="#modalLogin">
-						<b>Cadastre-se</b>
-					</a>
-				</li>
-
-				<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<b>Login</b>
-				  <span class="caret"></span>
-				</a>
-					<ul id="login-dp" class="dropdown-menu">
-						<li>
-							<div class="row">
-								<div class="col-md-12">
-									LOGIN
-									<hr class="colorgraph"></hr>
-									<form class="form" role="form" method="post" action="login"
-										accept-charset="UTF-8" id="login-nav">
-										<div class="form-group">
-											<label class="sr-only" for="exampleInputEmail2">
-												E-mail </label> <input type="text" class="form-control"
-												id="emailLogin" placeholder="E-mail" />
-										</div>
-										<div class="form-group">
-											<label class="sr-only" for="exampleInputPassword2">
-												Password </label> <input type="password" class="form-control"
-												id="senhaLogin" placeholder="Senha" />
-											<div class="help-block text-right">
-												<a href="">Esqueceu sua Senha?</a>
+				<ui:fragment rendered="#{customIdentity.usuario != null}">	
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="modal" role="button">
+				       		<b><h:outputText styleClass="dropdown-toggle" value="#{resources['label.global.ola']}" /><h:outputText value="#{customIdentity.usuario.nome}"/></b>
+				       </a>
+					</li>
+				</ui:fragment>
+				<ui:fragment rendered="#{customIdentity.usuario eq null}">
+					<li>
+						<a href="#" class="dropdown-toggle" id="usuarioCad" data-toggle="modal" data-target="#modalLogin">
+							<b>#{resources['label.global.cadastreSe']}</b>
+						</a>
+					</li>
+				</ui:fragment>
+				<ui:fragment rendered="#{customIdentity.usuario eq null}">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<b>#{resources['label.global.login']}</b>
+						  	<span class="caret"></span>
+						</a>
+						<ul id="login-dp" class="dropdown-menu">
+							<li>
+								<div class="row">
+									<div class="col-md-12">
+										<b>#{resources['label.global.login']}</b>
+										<h:form id="idFormLoginUsuario" prependId="false"><br />
+											<div class="form-group">
+												<label class="sr-only" for="inputEmailLogin">#{resources['label.global.email']}</label>
+												<h:inputText value="#{loginCredentials.userId}" class="form-control" id="emailLogin">
+													<f:passThroughAttribute name="placeholder" value="#{resources['label.global.email']}" />
+												</h:inputText>
 											</div>
-										</div>
-										<div class="form-group">
-											<button type="submit" class="btn btn-primary btn-block">Entrar</button>
-										</div>
-									</form>
+											<div class="form-group">
+												<label class="sr-only" for="inputSenhaLogin">#{resources['label.global.senha']}</label>
+												<h:inputSecret value="#{loginCredentials.password}" class="form-control" id="senhaLogin">
+													<f:passThroughAttribute name="placeholder" value="#{resources['label.global.senha']}" />
+												</h:inputSecret>
+												<div class="help-block text-right">
+													<a href="">#{resources['label.global.esqueceuSenha']}</a>
+												</div>
+											</div>
+											<div class="form-group">
+												<h:commandLink action="#{simpleAuthenticator.authenticate()}" class="btn btn-danger" type="button" >
+													<i class="fa fa-save"></i>
+													<h:outputText value="#{resources['label.global.entrar']}" />
+												</h:commandLink>
+											</div>
+										</h:form>
+									</div>
 								</div>
-							</div>
+							</li>
+						</ul>
 						</li>
-					</ul></li>
-			</ul>
-			
-			
-			
+					</ui:fragment>
+					<ui:fragment rendered="#{customIdentity.usuario.perfil eq 'GESTOR'}">
+					    <li class="dropdown">
+					       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+					       		<b>#{resources['label.global.acoes']}<span class="caret"></span></b>
+					       </a>
+					       <ul class="dropdown-menu">
+					         <h:form id="idFormAcoesGestor" prependId="false">
+						         <li>
+						         	<h:commandLink action="#{categoriaController.capturarCategorias()}" class="dropdown-toggle" >
+										<h:outputText value="#{resources['label.uc.menu.categorias']}" />
+									</h:commandLink>
+						         </li>
+						         <li role="separator" class="divider"></li>
+						         <li>
+						         	<h:commandLink action="#{contratadoController.capturarContratados()}" class="dropdown-toggle" >
+										<h:outputText value="#{resources['label.uc.menu.contratados']}" />
+									</h:commandLink>
+						         </li>
+						         <li role="separator" class="divider"></li>
+						         <li>
+						         	<h:commandLink action="#{usuarioController.capturarUsuarios()}" class="dropdown-toggle" >
+										<h:outputText value="#{resources['label.uc.menu.listaUsuario']}" />
+									</h:commandLink>
+						         </li>
+						         <li role="separator" class="divider"></li>
+						         <li>
+						         	<h:commandLink action="#{ofertaController.capturarOfertasUsuario()}" class="dropdown-toggle" >
+										<h:outputText value="#{resources['label.uc.oferta.ofertas']}" />
+									</h:commandLink>
+						         </li>
+					         </h:form>
+					       </ul>
+					    </li>
+				    </ui:fragment>
+					<ui:fragment rendered="#{customIdentity.usuario.perfil eq 'COLABORADOR'}">
+					    <li class="dropdown">
+					       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+					       		#{resources['label.global.acoes']}<span class="caret"></span>
+					       </a>
+					       <ul class="dropdown-menu">
+					         <h:form id="idFormAcoesColaborador" prependId="false">
+						         <li>
+						         	<h:commandLink action="#{usuarioController.capturarUsuario()}" class="dropdown-toggle" >
+										<h:outputText value="#{resources['label.uc.menu.dadosPessoais']}" />
+									</h:commandLink>
+						         </li>
+						         <li role="separator" class="divider"></li>
+						         <li>
+						         	<h:commandLink action="#{ofertaController.capturarOfertasUsuario()}" class="dropdown-toggle" >
+										<h:outputText value="#{resources['label.uc.menu.minhasOfertas']}" />
+									</h:commandLink>
+						         </li>
+						         <li role="separator" class="divider"></li>
+						         <li>
+						         	<h:commandLink action="#{ofertaController.abrirTelaCadastroOferta()}" class="dropdown-toggle" >
+										<h:outputText value="#{resources['label.uc.menu.novaOferta']}" />
+									</h:commandLink>
+						         </li>
+					         </h:form>
+					       </ul>
+					    </li>
+					</ui:fragment>
+					<ui:fragment rendered="#{customIdentity.usuario != null}">
+					    <li>
+							<a href="#{simpleAuthenticator.logout()}" class="dropdown-toggle" id="logout" data-toggle="modal">
+								<b>#{resources['label.global.sair']}</b>
+							</a>
+							
+							<!-- <h:commandLink action="#{simpleAuthenticator.logout()}" class="dropdown-toggle" >
+								<h:outputText value="#{resources['label.global.sair']}" />
+							</h:commandLink> -->
+						</li>
+					</ui:fragment>
+				</ul>
+			</div>
 		</div>
-		
-		
-		
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			
-		</div>
-	</div>
 	</nav>
 
 	<div class="container" id="content">
 		<ui:insert name="content" />
 	</div>
+	
 	<div id="footer">
 		<!-- <h:graphicImage value="/resources/gfx/logoOpa.png" alt="Weld logo"/> -->
-		<p>
+		<h5>
 			#{resources['label.global.rodape']}<br />
-		</p>
+		</h5>
 	</div>
-
+	
 </h:body>
 </html>

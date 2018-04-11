@@ -1,2 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PROCESS model-entity="JSFProcess"/>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#page#usuario#usuario_list.xhtml"
+  PATH="/page/usuario/usuario_list.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="iniciarEdicaoUsuario::#page#usuario#usuario_edit.xhtml"
+    NAME="output" PATH="/page/usuario/usuario_edit.xhtml"
+    TARGET="rules:#page#usuario#usuario_edit.xhtml"
+    TITLE="iniciarEdicaoUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::1" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::1" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editarUsuario::#page#usuario#usuario_edit.xhtml" NAME="output"
+    PATH="/page/usuario/usuario_edit.xhtml"
+    TARGET="rules:#page#usuario#usuario_edit.xhtml"
+    TITLE="editarUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#page#oferta#oferta_form.xhtml"
+  PATH="/page/oferta/oferta_form.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::2" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::2" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="viewUsuario::#page#usuario#usuario_view.xhtml" NAME="output"
+    PATH="/page/usuario/usuario_view.xhtml"
+    TARGET="rules:#page#usuario#usuario_view.xhtml" TITLE="viewUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#page#usuario#usuario_form_list.xhtml"
+  PATH="/page/usuario/usuario_form_list.xhtml" SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::3" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::3" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listarUsuario::#page#usuario#usuario_list.xhtml" NAME="output"
+    PATH="/page/usuario/usuario_list.xhtml"
+    TARGET="rules:#page#usuario#usuario_list.xhtml"
+    TITLE="listarUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#page#categoria#categoria_list.xhtml"
+  PATH="/page/categoria/categoria_list.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::4" SHAPE="32,801,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::4" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listarCategoria::#page#categoria#categoria_list.xhtml"
+    NAME="output" PATH="/page/categoria/categoria_list.xhtml"
+    TARGET="rules:#page#categoria#categoria_list.xhtml"
+    TITLE="listarCategoria" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#page#categoria#categoria_form.xhtml"
+  PATH="/page/categoria/categoria_form.xhtml" SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::5" SHAPE="32,913,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::5" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listarContratado::#page#contratado#contratado_list.xhtml"
+    NAME="output" PATH="/page/contratado/contratado_list.xhtml"
+    TARGET="rules:#page#contratado#contratado_list.xhtml"
+    TITLE="listarContratado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#page#contratado#contratado_list.xhtml"
+  PATH="/page/contratado/contratado_list.xhtml" SHAPE="240,929,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::6" SHAPE="32,1025,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::6" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listarOferta::#page#oferta#oferta_list.xhtml" NAME="output"
+    PATH="/page/oferta/oferta_list.xhtml"
+    TARGET="rules:#page#oferta#oferta_list.xhtml" TITLE="listarOferta" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#page#contratado#parametros_contratado_form.xhtml"
+  PATH="/page/contratado/parametros_contratado_form.xhtml"
+  SHAPE="240,1041,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::7" SHAPE="32,1137,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::7" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="abrirCadastroUsuario::#page#usuario#usuario_form_list.xhtml"
+    NAME="output" PATH="/page/usuario/usuario_form_list.xhtml"
+    TARGET="rules:#page#usuario#usuario_form_list.xhtml"
+    TITLE="abrirCadastroUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#page#usuario#usuario_view.xhtml"
+  PATH="/page/usuario/usuario_view.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::8" SHAPE="32,1249,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::8" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="abrirCadastroOferta::#page#oferta#oferta_form.xhtml"
+    NAME="output" PATH="/page/oferta/oferta_form.xhtml"
+    TARGET="rules:#page#oferta#oferta_form.xhtml"
+    TITLE="abrirCadastroOferta" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#page#usuario#usuario_edit.xhtml"
+  PATH="/page/usuario/usuario_edit.xhtml" SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::9" SHAPE="32,1361,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::9" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="abrirCadastroCategoria::#page#categoria#categoria_form.xhtml"
+    NAME="output" PATH="/page/categoria/categoria_form.xhtml"
+    TARGET="rules:#page#categoria#categoria_form.xhtml"
+    TITLE="abrirCadastroCategoria" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::10" SHAPE="32,1473,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::10" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="abrirParametrosContratado::#page#contratado#parametros_contratado_form.xhtml"
+    NAME="output"
+    PATH="/page/contratado/parametros_contratado_form.xhtml"
+    TARGET="rules:#page#contratado#parametros_contratado_form.xhtml"
+    TITLE="abrirParametrosContratado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#page#oferta#oferta_list.xhtml"
+  PATH="/page/oferta/oferta_list.xhtml" SHAPE="240,1153,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>
