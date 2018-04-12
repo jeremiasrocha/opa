@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/WEB-INF/templates/default.xhtml">
+	
+<ui:define name="content">
+<h:body onload="load();">
+	<div class="container">
+		<div class="modal-header" align="center">
+			<h1>#{resources['label.uc.menu.novaOferta']}</h1>
+		</div>
+		<h:form id="idFormUsuario" prependId="false">
+			<h:messages errorStyle="color: red"/>
+			<div class="form-group">
+				<!-- <a href="#" data-toggle="tooltip" data-placement="left" title="Flavia Chatinha!!!">Hover</a> -->
+				<label for="inputTipo">#{resources['label.global.tipo']}</label>
+				<h:selectOneRadio id="TipoDeOferta" styleClass="itemParametro-radio" value="#{ofertaController.to.oferta.tipo}" onclick="divControl(this);" required="true">
+					<f:selectItems value="#{combosBean.listaTipoOferta}" var="oferta" itemValue="#{oferta}" itemLabel="#{resources[oferta.text]}" id="Tipo" />
+				</h:selectOneRadio>
+			</div>
+			
+			<div id="divInputLinkOferta" style="display: none;">
+				<div class="form-group">
+					<label for="inputLink">#{resources['label.uc.oferta.link']}</label>
+					<h:inputText value="#{ofertaController.to.oferta.urlPadrao}" class="form-control" id="Link">
+						<f:passThroughAttribute name="placeholder" value="#{resources['label.uc.oferta.msgLabelLink']}" />
+					</h:inputText>
+					<h:outputText value="#{resources['label.uc.oferta.msgLink']}" />
+	  			</div>
+			</div>
+
+			<div class="form-group">
+				<label for="inputTitulo">#{resources['label.uc.alerta.nomeTitulo']}</label>
+				<h:inputText value="#{ofertaController.to.oferta.nome}" class="form-control" id="Titulo" required="true">
+					<f:passThroughAttribute name="placeholder" value="#{resources['label.uc.oferta.nomeProduto']}" />
+				</h:inputText>
+  			</div>
+  			
+  			<div class="form-group">
+				<label for="inputDescricao">#{resources['label.uc.oferta.comentariosInstrucoes']}</label>
+				<h:inputTextarea value="#{ofertaController.to.oferta.descricao}" rows="3" class="form-control" id="Descricao">
+					<f:passThroughAttribute name="placeholder" value="#{resources['label.uc.oferta.msgComentariosInstrucoes']}" />
+				</h:inputTextarea>
+  			</div>
+  			
+  			<div class="form-group">
+				<label for="inputTipo">#{resources['label.uc.categoria.titulo']}</label>
+				<h:selectOneMenu id="Categoria" value="#{ofertaController.to.oferta.idCategoria}" required="true">
+                	<f:selectItem itemValue="" itemLabel="#{resources['label.uc.categoria.selecioneCategoria']}"/>
+                	<f:selectItems value="#{ofertaController.to.categorias}" var="categoria" itemLabel="#{categoria.nome}" itemValue="#{categoria.id}"/>  
+            	</h:selectOneMenu>
+			</div>
+  			
+  			<div class="form-group">
+				<label for="inputPreco">#{resources['label.uc.oferta.preco']}</label>
+				<h:inputText value="#{ofertaController.to.oferta.preco}" class="form-control" id="Preco" required="true">
+					<f:passThroughAttribute name="placeholder" value="#{resources['label.global.simboloMonetario']}" />
+				</h:inputText>
+  			</div>
+  			
+  			<div class="form-group">
+				<label for="inputDataLimite">#{resources['label.uc.oferta.dataLimite']}</label>
+				<h:inputText value="#{ofertaController.to.oferta.dataLimite}" class="form-control" id="OfertaExpira" required="true">
+					<f:passThroughAttribute name="placeholder" value="#{resources['label.global.mascaraData']}" />
+				</h:inputText>
+  			</div>
+			
+			<div class="form-group" align="center">
+				<h:commandLink action="#{ofertaController.incluir()}" class="btn btn-danger" type="button">
+					<h:outputText value="#{resources['label.global.cadastrar']}" />
+					<!--<f:ajax render="@form" resetValues="true"/> -->
+				</h:commandLink>
+			</div>
+		
+		</h:form>
+	</div>
+	
+	<script>
+		//<![CDATA[
+		
+		function divControl(campo) {
+	        if (campo.value == 'LV') {
+	            document.getElementById('divInputLinkOferta').style.display = '';
+	        } else 
+		   	if(campo.value == 'LF') {
+	            document.getElementById('divInputLinkOferta').style.display = 'none';
+		    }
+	    }
+	
+		function load(campo) {
+			document.getElementById('Preco').value = '';
+	    }
+	    
+	    $(document).ready(function(){
+	        $('[data-toggle="tooltip"]').tooltip(); 
+	    });
+
+	    /*$(function() {	
+			$("#OfertaExpira").mask("99/99/9999");
+			$("#Preco").maskMoney({symbol:'R$ ', 
+				showSymbol:true, thousands:'.', decimal:',', symbolStay: true});
+		});*/
+
+		//]]>
+	</script>
+
+</h:body>
+</ui:define>
+</ui:composition>

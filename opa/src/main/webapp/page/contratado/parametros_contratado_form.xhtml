@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:body onload="load();">
+	<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+   		<div class="modal-dialog">
+   			<div class="modal-content">
+	      		<div class="modal-header" align="center">
+					<h1>#{resources['label.global.novoCadastro']}</h1>
+	      		</div>
+	      		<div class="modal-body">
+					  <h:form id="idFormContratado" prependId="false">
+					  	<div class="form-group">
+							<label for="inputNome">#{resources['label.uc.contratado.titulo']}</label>
+							<h:inputText value="#{contratadoController.to.contratado.nome}" class="form-control" id="nomeContratado">
+								<f:passThroughAttribute name="placeholder" value="Nome Empresa/Contratado" />
+							</h:inputText>
+  						</div>
+  						<div class="form-group">
+							<label for="inputEmail">#{resources['label.global.email']}</label>
+							<h:inputText value="#{contratadoController.to.contratado.email}" class="form-control" id="emailContratado">
+								<f:passThroughAttribute name="placeholder" value="E-mail" />
+							</h:inputText>
+  						</div>
+  						<div class="form-group">
+							<label for="inputNome">#{resources['label.uc.contratado.tipoContratado']}</label>
+							<h:selectOneRadio id="radioTipoContratado" styleClass="itemParametro-radio" value="#{contratadoController.to.contratado.tipo}">
+								<f:selectItems value="#{combosBean.listaTipoContratado}" var="tipoContratado" itemValue="#{tipoContratado}" itemLabel="#{resources[tipoContratado.text]}" />
+							</h:selectOneRadio>
+  						</div>
+  						<div class="form-group">
+							<label for="inputNumeroInscricao">#{resources['label.uc.contratado.codigoContratado']}</label>
+							<h:inputText value="#{contratadoController.to.contratado.codigo}" class="form-control" id="codigoContratado">
+								<f:passThroughAttribute name="placeholder" value="CPF/CNPJ" />
+							</h:inputText>
+  						</div>
+  						<div class="form-group">
+							<label for="inputEmail">#{resources['label.global.telefone']}</label>
+							<h:inputText value="#{contratadoController.to.contratado.telefone}" class="form-control" id="telefoneContratado">
+								<f:passThroughAttribute name="placeholder" value="DDD - Telefone" />
+							</h:inputText>
+  						</div>	
+  						<div class="form-group">
+							<label for="inputEmail">#{resources['label.global.endereco']}</label>
+							<h:inputText value="#{contratadoController.to.contratado.endereco}" class="form-control" id="enderecoContratado">
+								<f:passThroughAttribute name="placeholder" value="Endereço" />
+							</h:inputText>
+  						</div>
+  						<div class="form-group" align="center">
+							<h:commandLink action="#{contratadoController.incluir()}"	styleClass="btn btn-app" type="button" binding="#{save}">
+								<i class="fa fa-save"></i>
+								<h:outputText value="#{resources['label.global.cadastrar']}" />
+								<!-- <f:ajax render="@form" resetValues="true"/> -->
+							</h:commandLink>
+						</div>
+					  </h:form>
+				</div>
+			</div>
+	  </div>
+	</div>
+	
+	<script>
+		//<![CDATA[
+	
+		function load(campo) {
+			document.getElementById('nomeContratado').value = '';
+			document.getElementById('emailContratado').value = '';
+			document.getElementById('radioTipoContratado').value = '';
+			document.getElementById('codigoContratado').value = '';
+			document.getElementById('telefoneContratado').value = '';
+			document.getElementById('enderecoContratado').value = '';
+	    }
+	    
+	    $(document).ready(function(){
+	        $('[data-toggle="tooltip"]').tooltip(); 
+	    });
+
+		//]]>
+	</script>
+</h:body>
+</ui:composition>

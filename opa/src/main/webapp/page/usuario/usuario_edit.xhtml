@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/WEB-INF/templates/default.xhtml">
+
+<ui:define name="content">
+<h:body onload="load();">
+	<div class="container">
+		<div class="modal-header" align="center">
+			<h4>#{resources['label.global.editar']}</h4>
+		</div>
+		<div class="modal-body">
+			<h:form id="idFormEditUsuario" prependId="false">
+			  <h:messages errorStyle="color: red"/>
+				<div class="form-group">
+					<label for="inputNome">#{resources['label.global.nome']}</label>
+					<h:inputText value="#{usuarioController.to.usuario.nome}" class="form-control" id="Nome"  required="true">
+						<f:passThroughAttribute name="placeholder" value="#{resources['label.global.nome']}" />
+					</h:inputText>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputEmail">#{resources['label.global.email']}</label>
+					<h:outputText value="#{resources['label.uc.usuario.msg.alteracaoId']}" />
+				</div>
+						
+				<div class="form-group">
+					<label for="inputSenha">#{resources['label.global.senha']}</label>
+					<h:inputSecret value="#{usuarioController.to.usuario.senha}" class="form-control" id="Senha" required="true">
+						<f:passThroughAttribute name="placeholder" value="#{resources['label.global.senha']}" />
+					</h:inputSecret>
+				</div>
+				
+				<div class="form-group" align="center">
+					<h:commandLink action="#{usuarioController.alterar()}" class="btn btn-danger" type="button">
+						<h:outputText value="#{resources['label.global.alterar']}" />
+						<!--<f:ajax render="@form" resetValues="true"/> -->
+					</h:commandLink>
+				</div>
+			</h:form>
+		</div>
+	</div>
+	
+	<script>
+		//<![CDATA[
+		function Security(val, tamanho) {
+			document.getElementById('trQualidadeSenha').style.display = 'inline';
+			if( val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[A-Z]/) != -1 && val.search(/[0-9]/) != -1 
+				||val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[A-Z]/) != -1 && val.search(/[@!#$%&*+=?|-]/) 
+				||val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[@!#$%&*+=?|-]/) != -1 && val.search(/[0-9]/) 
+				||val.length >= tamanho  && val.search(/[@!#$%&*+=?|-]/) != -1 && val.search(/[A-Z]/) != -1 && val.search(/[0-9]/)) {
+						document.getElementById('mensagem').innerHTML = "forte";
+						qualidadeSenha = 'forte';
+		  	} else 
+	  		if( val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[A-Z]/) != -1 
+	  			||val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[0-9]/) != -1 
+	  			||val.length >= tamanho && val.search(/[a-z]/) != -1 && val.search(/[@!#$%&*+=?|-]/) != -1
+					||val.length >= tamanho && val.search(/[A-Z]/) != -1 && val.search(/[0-9]/) != -1
+					||val.length >= tamanho && val.search(/[A-Z]/) != -1 && val.search(/[@!#$%&*+=?|-]/) != -1
+					||val.length >= tamanho && val.search(/[0-9]/) != -1 && val.search(/[@!#$%&*+=?|-]/) != -1){
+	  				qualidadeSenha = 'média';
+					document.getElementById('mensagem').innerHTML = "média";
+	  		} else 
+	  		if(val.length >= tamanho) {
+	  			qualidadeSenha = 'fraca';
+		  		document.getElementById('mensagem').innerHTML = "fraca";
+	  		}
+		}
+		
+		function load(campo) {
+	    }
+	    
+	    $(document).ready(function(){
+	        $('[data-toggle="tooltip"]').tooltip(); 
+	    });
+
+	    /*$(function() {	
+			$("#telefoneContratado").mask("(999) 99999-9999");
+
+		    });*/
+
+		//]]>
+	</script>
+	
+</h:body>
+</ui:define>
+</ui:composition>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/WEB-INF/templates/default.xhtml">
+
+<ui:define name="content">
+<h:body onload="load();">
+	<div class="container">
+		<div class="modal-header" align="center">
+			<h4>#{resources['label.uc.categoria.novaCategoria']}</h4>
+		</div>
+
+		<div class="modal-body">
+			<h:form id="idFormNewCategoria" prependId="false">
+			  <h:messages errorStyle="color: red"/>
+			  	
+				<div class="form-group">
+					<label for="inputCodigo">#{resources['label.global.codigo']}</label>
+					<h:inputText value="#{categoriaController.to.categoria.codigo}" class="form-control" id="Codigo" required="true">
+						<f:passThroughAttribute name="placeholder" value="#{resources['label.global.codigo']}" />
+					</h:inputText>
+				</div>
+				<div class="form-group">
+					<label for="inputNome">#{resources['label.global.nome']}</label>
+					<h:inputText value="#{categoriaController.to.categoria.nome}" class="form-control" id="Nome" required="true">
+						<f:passThroughAttribute name="placeholder" value="#{resources['label.global.nome']}" />
+					</h:inputText>
+				</div>
+				<div class="form-group">
+					<label for="inputDescricao">#{resources['label.global.descricao']}</label>
+					<h:inputTextarea value="#{categoriaController.to.categoria.descricao}" rows="3" class="form-control" id="Descricao">
+						<f:passThroughAttribute name="placeholder" value="#{resources['label.global.descricao']}" />
+					</h:inputTextarea>
+	  			</div>
+				<div class="form-group" align="center">
+					<h:commandLink action="#{categoriaController.incluir()}" class="btn btn-danger" type="button">
+						<h:outputText value="#{resources['label.global.cadastrar']}" />
+						<!--<f:ajax render="@form" resetValues="true"/> -->
+					</h:commandLink>
+				</div>
+			</h:form>
+		</div>
+	</div>
+	
+	<script>
+		//<![CDATA[
+
+		function load(campo) {
+			document.getElementById('Codigo').value = '';
+	    }
+	    
+	    $(document).ready(function(){
+	        $('[data-toggle="tooltip"]').tooltip(); 
+	    });
+
+	    /*$(function() {	
+			$("#telefoneContratado").mask("(999) 99999-9999");
+
+		    });*/
+
+		//]]>
+	</script>
+	
+</h:body>
+</ui:define>
+</ui:composition>
